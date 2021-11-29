@@ -128,6 +128,27 @@ class ViewController: UIViewController {
             operationArr.append(Num1)
             operationArr.append("+")
             print(operationArr)
+        case Subtract:
+            textDisplay.text? = ""
+            textDisplay.text?.append(contentsOf: "-")
+            let Num1: Int? = Int(Num1)
+            operationArr.append(Num1)
+            operationArr.append("-")
+            print(operationArr)
+        case Multiply:
+            textDisplay.text? = ""
+            textDisplay.text?.append(contentsOf: "*")
+            let Num1: Int? = Int(Num1)
+            operationArr.append(Num1)
+            operationArr.append("*")
+            print(operationArr)
+        case Divide:
+            textDisplay.text? = ""
+            textDisplay.text?.append(contentsOf: "/")
+            let Num1: Int? = Int(Num1)
+            operationArr.append(Num1)
+            operationArr.append("/")
+            print(operationArr)
         default:
             break
 
@@ -147,7 +168,19 @@ class ViewController: UIViewController {
         if operation == "+"{
             operationArr.remove(at: 1)
             let result = calc.add(arr: operationArr)
-            textDisplay.text? = "/(result)"
+            textDisplay.text? = "\(result)"
+        } else if operation == "-"{
+            operationArr.remove(at: 1)
+            let result = calc.subtract(arr: operationArr)
+            textDisplay.text? = "\(result)"
+        } else if operation == "*"{
+            operationArr.remove(at: 1)
+            let result = calc.multiply(arr: operationArr)
+            textDisplay.text? = "\(result)"
+        } else if operation == "/"{
+            operationArr.remove(at: 1)
+            let result = calc.divide(arr: operationArr)
+            textDisplay.text? = "\(result)"
         }
         
     }
