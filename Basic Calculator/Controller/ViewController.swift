@@ -161,29 +161,50 @@ class ViewController: UIViewController {
             case Add:
                 textDisplay.text? = ""
                 textDisplay.text?.append(contentsOf: "+")
-                let Num1: Int? = Int(Num1)
-                operationArr.append(Num1)
+                print(!Num1.contains("."))
+                if(Num1.contains(".")){
+                    let Num1: Double? = Double(Num1)
+                    operationArr.append(Num1)
+                } else{
+                    let Num1: Int? = Int(Num1)
+                    operationArr.append(Num1)
+                }
                 operationArr.append("+")
                 print(operationArr)
             case Subtract:
                 textDisplay.text? = ""
                 textDisplay.text?.append(contentsOf: "-")
-                let Num1: Int? = Int(Num1)
-                operationArr.append(Num1)
+                if(Num1.contains(".")){
+                    let Num1: Double? = Double(Num1)
+                    operationArr.append(Num1)
+                } else{
+                    let Num1: Int? = Int(Num1)
+                    operationArr.append(Num1)
+                }
                 operationArr.append("-")
                 print(operationArr)
             case Multiply:
                 textDisplay.text? = ""
                 textDisplay.text?.append(contentsOf: "*")
-                let Num1: Int? = Int(Num1)
-                operationArr.append(Num1)
+                if(Num1.contains(".")){
+                    let Num1: Double? = Double(Num1)
+                    operationArr.append(Num1)
+                } else{
+                    let Num1: Int? = Int(Num1)
+                    operationArr.append(Num1)
+                }
                 operationArr.append("*")
                 print(operationArr)
             case Divide:
                 textDisplay.text? = ""
                 textDisplay.text?.append(contentsOf: "/")
-                let Num1: Int? = Int(Num1)
-                operationArr.append(Num1)
+                if(Num1.contains(".")){
+                    let Num1: Double? = Double(Num1)
+                    operationArr.append(Num1)
+                } else{
+                    let Num1: Int? = Int(Num1)
+                    operationArr.append(Num1)
+                }
                 operationArr.append("/")
                 print(operationArr)
             default:
