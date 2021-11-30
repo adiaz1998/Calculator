@@ -162,5 +162,24 @@ struct Operations{
         return calc
     }
     
+    func percentage(arr: [Any]) -> Any {
+        
+        if arr[0] is Int{
+            let x = arr[0] as! Int
+            let result = x / 100
+            let calc = result as! Any
+            return calc
+        }
+        else if arr[0] is Double{
+            let x = arr[0] as! Double
+            let result = x / 100.0
+            let calc = result as! Any
+            return calc
+        }
+        let result = 0
+        let calc = result as! Any
+        return calc
+    }
+    
 }
 

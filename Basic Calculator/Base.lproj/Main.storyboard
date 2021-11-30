@@ -64,6 +64,9 @@
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="pressOperationWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8b8-xa-U0v"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDz-ra-R2J">
                                                 <rect key="frame" x="314.5" y="0.0" width="99.5" height="120"/>

@@ -207,6 +207,18 @@ class ViewController: UIViewController {
                 }
                 operationArr.append("/")
                 print(operationArr)
+            case Modulo:
+                textDisplay.text? = ""
+                if(Num1.contains(".")){
+                    let Num1: Double? = Double(Num1)
+                    operationArr.append(Num1)
+                } else{
+                    let Num1: Int? = Int(Num1)
+                    operationArr.append(Num1)
+                }
+                let result = calc.percentage(arr: operationArr)
+                textDisplay.text? = "\(result)"
+                
             default:
                 break
 
@@ -216,10 +228,14 @@ class ViewController: UIViewController {
     
     @IBAction func equals(sender: UIButton) {
         if (operationArr.count >= 2){
-            let Num2: Int? = Int(Num2)
-            operationArr.append(Num2)
-            
-            
+            if(Num2.contains(".")){
+                let Num2: Double? = Double(Num2)
+                operationArr.append(Num2)
+            } else{
+                let Num2: Int? = Int(Num2)
+                operationArr.append(Num2)
+            }
+
             print(operationArr)
             
             let operation = operationArr[1] as! String
