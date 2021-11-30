@@ -42,6 +42,9 @@
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="clearWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lcn-NM-XZy"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eie-Jg-It0">
                                                 <rect key="frame" x="105" y="0.0" width="99.5" height="120"/>
@@ -50,6 +53,9 @@
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="convertWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K9s-oa-7k1"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slX-0L-rTg">
                                                 <rect key="frame" x="209.5" y="0.0" width="100" height="120"/>
@@ -244,6 +250,9 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="pressNumberWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qbp-pk-Kwt"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkY-tg-xrH">
                                                 <rect key="frame" x="279.5" y="0.0" width="134.5" height="119.5"/>

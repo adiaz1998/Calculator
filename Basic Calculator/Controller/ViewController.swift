@@ -74,12 +74,19 @@ class ViewController: UIViewController {
             case Nine:
                 textDisplay.text?.append(contentsOf: "9")
                 Num1.append("9")
+            case Decimal:
+                textDisplay.text?.append(contentsOf: ".")
+                Num1.append(".")
             default:
                 break
 
             }
         }
             else{
+                if(textDisplay.text == "+" || textDisplay.text == "-" || textDisplay.text == "*" || textDisplay.text == "/"){
+                    textDisplay.text = ""
+                }
+                
                 switch sender {
                 case Zero:
                     textDisplay.text?.append(contentsOf: "0")
@@ -111,6 +118,9 @@ class ViewController: UIViewController {
                 case Nine:
                     textDisplay.text?.append(contentsOf: "9")
                     Num2.append("9")
+                case Decimal:
+                    textDisplay.text?.append(contentsOf: ".")
+                    Num2.append(".")
                 default:
                     break
 
@@ -119,71 +129,100 @@ class ViewController: UIViewController {
 
     }
     
-    @IBAction func pressOperation(sender: UIButton) {
-        switch sender {
-        case Add:
-            textDisplay.text? = ""
-            textDisplay.text?.append(contentsOf: "+")
-            let Num1: Int? = Int(Num1)
-            operationArr.append(Num1)
-            operationArr.append("+")
-            print(operationArr)
-        case Subtract:
-            textDisplay.text? = ""
-            textDisplay.text?.append(contentsOf: "-")
-            let Num1: Int? = Int(Num1)
-            operationArr.append(Num1)
-            operationArr.append("-")
-            print(operationArr)
-        case Multiply:
-            textDisplay.text? = ""
-            textDisplay.text?.append(contentsOf: "*")
-            let Num1: Int? = Int(Num1)
-            operationArr.append(Num1)
-            operationArr.append("*")
-            print(operationArr)
-        case Divide:
-            textDisplay.text? = ""
-            textDisplay.text?.append(contentsOf: "/")
-            let Num1: Int? = Int(Num1)
-            operationArr.append(Num1)
-            operationArr.append("/")
-            print(operationArr)
-        default:
-            break
-
+    @IBAction func clear(sender: UIButton) {
+        textDisplay.text? = ""
+        Num1.removeAll()
+        operationArr.removeAll()
+        Num2.removeAll()
+        
+    }
+    
+    @IBAction func convert(sender: UIButton) {
+        if(operationArr.isEmpty && !Num1.contains("-")){
+            Num1 = "-" + Num1
+            textDisplay.text? = "-" + textDisplay.text!
+        } else if (operationArr.isEmpty && Num1.contains("-")){
+            Num1.removeFirst()
+            textDisplay.text?.removeFirst()
+        } else if (!operationArr.isEmpty && !Num1.contains("-")){
+            Num2 = "-" + Num2
+            textDisplay.text? = "-" + textDisplay.text!
+        } else if (!operationArr.isEmpty && Num1.contains("-")){
+            Num2.removeFirst()
+            textDisplay.text?.removeFirst()
         }
+        
+    }
+    
+    
+    @IBAction func pressOperation(sender: UIButton) {
+        if(!Num1.isEmpty){
+            switch sender {
+            case Add:
+                textDisplay.text? = ""
+                textDisplay.text?.append(contentsOf: "+")
+                let Num1: Int? = Int(Num1)
+                operationArr.append(Num1)
+                operationArr.append("+")
+                print(operationArr)
+            case Subtract:
+                textDisplay.text? = ""
+                textDisplay.text?.append(contentsOf: "-")
+                let Num1: Int? = Int(Num1)
+                operationArr.append(Num1)
+                operationArr.append("-")
+                print(operationArr)
+            case Multiply:
+                textDisplay.text? = ""
+                textDisplay.text?.append(contentsOf: "*")
+                let Num1: Int? = Int(Num1)
+                operationArr.append(Num1)
+                operationArr.append("*")
+                print(operationArr)
+            case Divide:
+                textDisplay.text? = ""
+                textDisplay.text?.append(contentsOf: "/")
+                let Num1: Int? = Int(Num1)
+                operationArr.append(Num1)
+                operationArr.append("/")
+                print(operationArr)
+            default:
+                break
 
+            }
+        }
     }
     
     @IBAction func equals(sender: UIButton) {
-        let Num2: Int? = Int(Num2)
-        operationArr.append(Num2)
+        if (operationArr.count >= 2){
+            let Num2: Int? = Int(Num2)
+            operationArr.append(Num2)
+            
+            
+            print(operationArr)
+            
+            let operation = operationArr[1] as! String
+            
+            if operation == "+"{
+                operationArr.remove(at: 1)
+                let result = calc.add(arr: operationArr)
+                textDisplay.text? = "\(result)"
+            } else if operation == "-"{
+                operationArr.remove(at: 1)
+                let result = calc.subtract(arr: operationArr)
+                textDisplay.text? = "\(result)"
+            } else if operation == "*"{
+                operationArr.remove(at: 1)
+                let result = calc.multiply(arr: operationArr)
+                textDisplay.text? = "\(result)"
+            } else if operation == "/"{
+                operationArr.remove(at: 1)
+                let result = calc.divide(arr: operationArr)
+                textDisplay.text? = "\(result)"
+            }
         
-        
-        print(operationArr)
-        
-        let operation = operationArr[1] as! String
-        
-        if operation == "+"{
-            operationArr.remove(at: 1)
-            let result = calc.add(arr: operationArr)
-            textDisplay.text? = "\(result)"
-        } else if operation == "-"{
-            operationArr.remove(at: 1)
-            let result = calc.subtract(arr: operationArr)
-            textDisplay.text? = "\(result)"
-        } else if operation == "*"{
-            operationArr.remove(at: 1)
-            let result = calc.multiply(arr: operationArr)
-            textDisplay.text? = "\(result)"
-        } else if operation == "/"{
-            operationArr.remove(at: 1)
-            let result = calc.divide(arr: operationArr)
-            textDisplay.text? = "\(result)"
         }
-        
-    }
 
 }
 
+}
